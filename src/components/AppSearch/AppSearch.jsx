@@ -5,7 +5,7 @@ export default function AppSearch({ setSearchData }) {
 
 
     const handleSearch = (e) => {
-        setSearchData = () => e.target.value
+        setSearchData(e.target.value)
     }
 
 
