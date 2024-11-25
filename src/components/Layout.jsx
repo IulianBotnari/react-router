@@ -7,15 +7,15 @@ export default function Layout({ setSearchData }) {
         <>
 
 
-            <div className="container d-flex flex-column mb-3">
+            <div className="container d-flex flex-column height100">
 
-                <header className="d-flex justify-content-between p-5">
+                <header className="d-flex justify-content-between align-content-center p-5">
                     <h1 className={StyleHeader.h1}>Il mio blog</h1>
                     <AppSearch setSearchData={setSearchData} />
 
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/posts">Posts</NavLink>
-                    <NavLink to="/about">Posts</NavLink>
+                    <NavLink className="align-content-center p-1 ancor_tag" to="/">Home</NavLink>
+                    <NavLink className="align-content-center p-1 ancor_tag" to="/posts">Posts</NavLink>
+                    <NavLink className="align-content-center p-1 ancor_tag" to="/about">Posts</NavLink>
 
 
                 </header>
@@ -26,14 +26,14 @@ export default function Layout({ setSearchData }) {
                 </main>
 
 
-                <footer>
+                <footer className="container">
                     <p>Copyright © 2023 Il mio blog. All rights reserved.</p>
                 </footer>
-
 
             </div>
 
         </>
+
 
     )
 }

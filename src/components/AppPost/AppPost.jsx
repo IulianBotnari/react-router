@@ -12,7 +12,7 @@ export default function AppPost({ setPostSearchData }) {
     useEffect(() => {
         console.log(searchData);
         setNewPosts(posts.filter(post => post.title.toLowerCase().includes(searchData.toLowerCase())))
-    }, [searchData])
+    }, [searchData, posts])
 
 
     async function fetchPost() {
@@ -32,7 +32,7 @@ export default function AppPost({ setPostSearchData }) {
     useEffect(() => {
         fetchPost()
 
-    }, [posts])
+    }, [])
 
 
     async function handleDeletePost(e) {

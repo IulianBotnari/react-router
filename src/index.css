@@ -4,6 +4,46 @@
     box-sizing: border-box;
 }
 
+#root {
+    height: 100vh;
+}
+
+body {
+    background-color: rgb(228, 219, 219) !important;
+    min-height: 100vh !important;
+
+}
+
+.height100 {
+    height: 100%;
+}
+
 header {
     width: 100%;
+    color: white;
+    background-color: black;
+
+}
+
+
+.ancor_tag {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.active {
+    color: rgb(185, 22, 22);
+    text-decoration: none;
+    padding: 10px;
+
+}
+
+
+footer {
+    color: white;
+    background-color: black;
+    height: 10vh;
+
+
 }
