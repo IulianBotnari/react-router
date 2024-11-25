@@ -1,7 +1,12 @@
 import { useState } from 'react'
-import Appheader from './components/AppHeader/AppHeader'
+import { BrowserRouter, Routes, Route } from 'react-router'
+import AppSearch from './components/AppSearch/AppSearch'
 import AppForm from './components/AppForm/AppForm'
 import AppPost from './components/AppPost/AppPost'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import Posts from './pages/Posts'
+import About from './pages/About'
 
 import './App.css'
 
@@ -14,25 +19,18 @@ function App() {
 
   return (
     <>
-      <div className="container d-flex flex-column mb-3">
-
-        <header className="d-flex justify-content-between p-5">
-          <Appheader setSearchData={setSearchPost} />
-
-        </header>
-
-        <main className="p-5">
-          <AppForm />
-
-          <AppPost setSearchData={searchPost} />
-
-        </main>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout setSearchData={setSearchPost} />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/posts" element={<Posts searchData={searchPost} />} />
+            <Route path="/about" element={<About />} />
 
 
 
-
-
-      </div>
+          </Route>
+        </Routes>
+      </BrowserRouter>
 
     </>
   )

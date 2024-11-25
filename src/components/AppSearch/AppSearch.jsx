@@ -1,7 +1,7 @@
-import Style from './AppHeader.module.css'
+import Style from './AppSearch.module.css'
 import { useState } from 'react'
 
-export default function Appheader({ setSearchData }) {
+export default function AppSearch({ setSearchData }) {
 
 
     const handleSearch = (e) => {
@@ -12,7 +12,6 @@ export default function Appheader({ setSearchData }) {
 
     return (
         <>
-            <h1 className={Style.h1}>Il mio blog</h1>
 
             <input type="search" className={`form-control ${Style.input}`} placeholder='Search...' onChange={handleSearch} />
         </>

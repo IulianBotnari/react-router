@@ -95,7 +95,7 @@ export default function AppForm() {
                 />
 
                 <label className="form-check-label" htmlFor="check_published">
-                    Publico/NonPublico
+                    Pubblico/NonPubblico
                 </label>
             </div>
 

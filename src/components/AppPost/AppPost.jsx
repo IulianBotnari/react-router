@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react'
 
 import Style from './AppPost.module.css'
 
-export default function AppPost({ setSearchData }) {
+export default function AppPost({ setPostSearchData }) {
 
     const [posts, setPosts] = useState([])
     const [newPost, setNewPosts] = useState([])
 
 
-    const searchData = setSearchData
+    const searchData = setPostSearchData
     useEffect(() => {
         console.log(searchData);
         setNewPosts(posts.filter(post => post.title.toLowerCase().includes(searchData.toLowerCase())))
