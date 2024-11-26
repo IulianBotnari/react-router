@@ -1,5 +1,5 @@
 h1 {
-    width: 80% !important;
+    max-width: 60% !important;
 }
 
 input {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router'
 
 import Style from './AppPost.module.css'
 
@@ -10,18 +11,17 @@ export default function AppPost({ setPostSearchData }) {
 
     const searchData = setPostSearchData
     useEffect(() => {
-        console.log(searchData);
         setNewPosts(posts.filter(post => post.title.toLowerCase().includes(searchData.toLowerCase())))
     }, [searchData, posts])
 
 
     async function fetchPost() {
         try {
-            const resp = await fetch('http://127.0.0.1:3000/posts');
-            const data = await resp.json();
-            setPosts(data);
+            const resp = await fetch('http://127.0.0.1:3000/posts')
+            const data = await resp.json()
+            setPosts(data)
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error:', error)
         }
 
 
@@ -32,11 +32,13 @@ export default function AppPost({ setPostSearchData }) {
     useEffect(() => {
         fetchPost()
 
-    }, [])
+    }, [newPost])
 
 
     async function handleDeletePost(e) {
         const btnId = e.target.getAttribute('id-post-btn')
+        console.log(btnId);
+
         try {
 
             const response = await fetch(`http://127.0.0.1:3000/posts/${btnId}`, {
@@ -44,7 +46,7 @@ export default function AppPost({ setPostSearchData }) {
             });
             if (response.ok) {
 
-                setPosts(posts.filter(post => post.id !== btnId))
+                setNewPosts(posts.filter(post => post.id !== btnId))
             } else {
                 console.error('Post not deleted')
             }
@@ -54,9 +56,11 @@ export default function AppPost({ setPostSearchData }) {
     }
 
 
+    function handNewPageID() {
 
 
 
+    }
 
 
 
@@ -65,21 +69,37 @@ export default function AppPost({ setPostSearchData }) {
         <>
             {newPost?.map((post, index) => (
 
-                <div key={index} id-post={post.id} className="">
-                    <div className="d-flex justify-content-between p-4" >
-                        <h3>{post.title}</h3>
+                <div key={index} id-post={post.id} className="bg-light-subtle my-4 p-4 rounded-5">
+                    <div className="d-flex justify-content-between" >
+                        <Link to={`/post/${post.id}`} onClick={handNewPageID}>
+                            <h3>{post.title}</h3>
+                        </Link>
                         <button type="button" className="btn btn-danger" id-post-btn={post.id} onClick={handleDeletePost}>Delete</button>
 
                     </div>
-                    <img className="p-4" src="https://picsum.photos/id/1/200/300" width="" />
 
-                    <p key={index}>{post.content}</p>
+                    <div className='d-flex'>
+                        <div>
 
-                    <p>{post.tags}</p>
+                            <img className="my-4 border border-2 border-warning" src="https://picsum.photos/id/1/200/300" width="" />
+                        </div>
 
-                    {post.published && <p>Pubblicato</p>}
+                        <div className='m-4'>
+                            <p key={index}><strong>Contenuto: </strong>{post.content}</p>
+
+                            <p><strong>Tags: </strong>{post.tags}</p>
+
+                            {post.published && <p>Pubblicato ✅</p>}
+
+                        </div>
+
+                    </div>
+
 
                 </div>
+
+
+
             ))
 
             }

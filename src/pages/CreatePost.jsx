@@ -1,10 +1,10 @@
 
 
-
+import { useNavigate } from 'react-router';
 import { useEffect, useState } from 'react';
-import Style from './AppForm.module.css'
+import Style from '../components/AppForm/AppForm.module.css'
 
-export default function AppForm() {
+export default function CreatePost() {
     const [addPost, setAddPost] = useState({
         title: '',
         id: Date.now().toString(),
@@ -13,6 +13,8 @@ export default function AppForm() {
         tags: [],
         published: true,
     });
+
+    const navigate = useNavigate()
 
 
     const handleFormSubmit = (e) => {
@@ -42,6 +44,13 @@ export default function AppForm() {
             .catch(err => {
                 console.error('Error adding post', err)
             });
+
+
+
+        navigate('/posts')
+
+
+
     };
 
     return (

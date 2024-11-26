@@ -7,12 +7,16 @@ import Layout from './components/Layout'
 import Home from './pages/Home'
 import Posts from './pages/Posts'
 import About from './pages/About'
+import CreatePost from './pages/CreatePost'
+import PostPage from './pages/PostPage'
 
 import './App.css'
 
 function App() {
 
   const [searchPost, setSearchPost] = useState('')
+
+
 
 
 
@@ -25,12 +29,17 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/posts" element={<Posts searchData={searchPost} />} />
             <Route path="/about" element={<About />} />
+            <Route path="/addpost" element={<CreatePost />} />
+            <Route path="/post/:id" element={<PostPage />} />
+
 
 
 
           </Route>
         </Routes>
       </BrowserRouter>
+
+
 
     </>
   )
