@@ -11,7 +11,7 @@ export default function Layout({ setSearchData }) {
 
                 <header className="d-flex justify-content-between align-content-center p-4">
                     <h1 className={StyleHeader.h1}>Il mio blog</h1>
-                    <AppSearch setSearchData={setSearchData} />
+                    <AppSearch />
 
                     <NavLink className="align-content-center p-1 ancor_tag" to="/">Home</NavLink>
                     <NavLink className="align-content-center p-1 ancor_tag" to="/posts">Posts</NavLink>

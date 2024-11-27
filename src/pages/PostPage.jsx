@@ -46,7 +46,7 @@ export default function PostPage() {
             <div key={post.id} id-post={post.id} className="bg-light-subtle my-4 p-4 rounded-5">
                 <div className="d-flex justify-content-between" >
                     <h3>{post.title}</h3>
-                    <button type="button" className="btn btn-danger" id-post-btn={post.id} >Delete</button>
+
 
                 </div>
 

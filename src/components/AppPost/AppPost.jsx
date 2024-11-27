@@ -1,18 +1,35 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
+import { useContext } from 'react'
 
 import Style from './AppPost.module.css'
+import SetSearchPostContext from '../../Context/SearchPostContext'
 
-export default function AppPost({ setPostSearchData }) {
+export default function AppPost() {
 
     const [posts, setPosts] = useState([])
-    const [newPost, setNewPosts] = useState([])
+    const [newPosts, setNewPosts] = useState([])
 
 
-    const searchData = setPostSearchData
-    useEffect(() => {
-        setNewPosts(posts.filter(post => post.title.toLowerCase().includes(searchData.toLowerCase())))
-    }, [searchData, posts])
+
+
+
+
+    const searchData = useContext(SetSearchPostContext)
+
+
+
+    console.log(searchData);
+
+    // useEffect(() => {
+
+
+
+    //     setNewPosts(posts.filter(post => post.title.toLowerCase().includes(searchData.toLowerCase())))
+
+
+
+    // }, [searchData, posts])
 
 
     async function fetchPost() {
@@ -32,7 +49,7 @@ export default function AppPost({ setPostSearchData }) {
     useEffect(() => {
         fetchPost()
 
-    }, [newPost])
+    }, [newPosts])
 
 
     async function handleDeletePost(e) {
@@ -67,7 +84,7 @@ export default function AppPost({ setPostSearchData }) {
     return (
 
         <>
-            {newPost?.map((post, index) => (
+            {posts?.map((post, index) => (
 
                 <div key={index} id-post={post.id} className="bg-light-subtle my-4 p-4 rounded-5">
                     <div className="d-flex justify-content-between" >
